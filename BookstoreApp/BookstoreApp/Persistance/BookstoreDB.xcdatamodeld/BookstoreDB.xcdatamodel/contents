@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Book" representedClassName="Book" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="bookDescription" optional="YES" attributeType="String"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="numPages" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="promotion" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="publishedYear" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="book" inverseEntity="Comment"/>
+        <relationship name="relationship1" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ratings"/>
+    </entity>
+    <entity name="Comment" representedClassName="Comment" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="comments" inverseEntity="Book"/>
+    </entity>
+    <entity name="Ratings" representedClassName="Ratings" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="userId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Recommended" representedClassName="Recommended" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="fromUser" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="toUser" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="adress" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <attribute name="surname" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <attribute name="userType" optional="YES" attributeType="String"/>
+        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment"/>
+        <relationship name="relationship1" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ratings"/>
+    </entity>
+    <elements>
+        <element name="Book" positionX="235.8760986328125" positionY="12.12689208984375" width="128" height="194"/>
+        <element name="Comment" positionX="104.5675048828125" positionY="408.606201171875" width="128" height="89"/>
+        <element name="Ratings" positionX="344.7127685546875" positionY="258.18505859375" width="128" height="74"/>
+        <element name="Recommended" positionX="90" positionY="162" width="128" height="74"/>
+        <element name="User" positionX="-104.7952880859375" positionY="95.77337646484375" width="128" height="193"/>
+    </elements>
+</model>
